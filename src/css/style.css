@@ -37,7 +37,7 @@ body::before{
     justify-content: center;
 }
 
-.selecao-de-personagens .personagem{
+.selecao-de-personagens .personagens{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,6 +52,10 @@ body::before{
     border-bottom: 2px solid #47f4ff;
     width: 100%;
     text-align: center;
+}
+
+.lista-de-personagens .personagem{
+    border-bottom: 4px solid #47f4ff;
 }
 
 .lista-de-personagens .personagem img{
