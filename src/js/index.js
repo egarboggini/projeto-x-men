@@ -1,5 +1,26 @@
 const personagens = document.querySelectorAll('.personagem');
 
+function alterarDescricaoPersonagemSelecionado(personagem) {
+    const descricaoPersonagem = document.getElementById('descricao-personagem');
+    descricaoPersonagem.innerText = personagem.getAttribute('data-description');
+}
+
+function alterarNomePersonagemSelecionado(personagem) {
+    const nomePersonagem = document.getElementById('nome-personagem');
+    nomePersonagem.innerText = personagem.getAttribute('data-name');
+}
+
+function alterarImagemPersonagemSelecionado(personagem) {
+    const imagemPersonagemGrande = document.querySelector('.personagem-grande');
+    const idPersonagem = personagem.attributes.id.value;
+    imagemPersonagemGrande.src = `./src/images/card-${idPersonagem}.png`;
+}
+
+function removerSelecaoDoPersonagem() {
+    const personagemSelecionado = document.querySelector('.selecionado');
+    personagemSelecionado.classList.remove('selecionado');
+}
+
 personagens.forEach((personagem) => {
     personagem.addEventListener('mouseenter', () => {
 
@@ -7,18 +28,14 @@ personagens.forEach((personagem) => {
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
         
-        const personagemSelecionado = document.querySelector('.selecionado');
-        personagemSelecionado.classList.remove('selecionado')
+        removerSelecaoDoPersonagem();
+
         personagem.classList.add('selecionado');
 
-        const imagemPersonagemGrande = document.querySelector('.personagem-grande');
-        const idPersonagem = personagem.attributes.id.value;
-        imagemPersonagemGrande.src = `./src/images/card-${idPersonagem}.png`;
+        alterarImagemPersonagemSelecionado(personagem);
 
-        const nomePersonagem = document.getElementById('nome-personagem');
-        nomePersonagem.innerText = personagem.getAttribute('data-name');
+        alterarNomePersonagemSelecionado(personagem);
        
-        const descricaoPersonagem = document.getElementById('descricao-personagem');
-        descricaoPersonagem.innerText = personagem.getAttribute('data-description');
+        alterarDescricaoPersonagemSelecionado(personagem);
     } )
 })
