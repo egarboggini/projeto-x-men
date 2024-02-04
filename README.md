@@ -1,1 +1,1 @@
-Uma página com cards informativos sobre alguns personagens dos X-Men
+Uma página interativa com informações sobre alguns personagens dos X-Men
